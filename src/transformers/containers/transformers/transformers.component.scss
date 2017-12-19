@@ -1,0 +1,61 @@
+:host {
+  display: block;
+}
+.transformers {
+  position: relative;
+  &__new {
+    margin: -35px -35px 35px;
+    background: #333333;
+    padding: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    app-transformer-item {
+      background: darkgray;
+      flex: 0 0 33%;
+      margin: 0 0 55px;
+      transition: 0.2s all ease;
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+  &__input {
+    font-family: 'trans';
+    border: 0;
+    margin: 0;
+    padding: 15px;
+    outline: 0;
+    width: 100%;
+    border-radius: 4px;
+    font-size: 20px;
+    font-weight: 600;
+    background: #f5f5f5;
+    border: 1px solid transparent;
+    &.error {
+      border-radius: 4px 4px 0 0;
+      border-color: #b54846;
+    }
+  }
+  &__select {
+    font-family: 'trans';
+    border: 0;
+    margin: 0 0 10px 0;
+    padding: 15px;
+    outline: 0;
+    width: 100%;
+    border-radius: 4px;
+    font-size: 20px;
+    font-weight: 600;
+    background: #f5f5f5;
+    border: 1px solid transparent;
+    &.error {
+      border-radius: 4px 4px 0 0;
+      border-color: #b54846;
+    }
+  }
+}

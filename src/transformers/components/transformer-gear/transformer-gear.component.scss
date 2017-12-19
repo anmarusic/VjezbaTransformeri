@@ -1,0 +1,30 @@
+:host {
+  display: block;
+}
+.transformer-gear {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  &-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    margin: 0 0 10px;
+    border-radius: 4px;
+    font-size: 15px;
+    font-family: 'trans';
+    border: 3px solid #333333;
+    flex: 0 0 23%;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    &.active {
+      border: 6px solid lightgreen;
+    }
+    img {
+      height: 50px;
+      margin: 0 10px 0 0;
+    }
+  }
+}

@@ -1,0 +1,225 @@
+{
+  "faction": [
+    {
+      "id": 0,
+      "name": "Autobots"
+    },
+    {
+      "id": 1,
+      "name": "Decepticons"
+    }
+  ],
+  "vehicleTypes": [
+    {
+      "group": "Air",
+      "type": "Plane",
+      "model": "F-22"
+    },
+    {
+      "group": "Air",
+      "type": "Plane",
+      "model": "Sukhoi"
+    },
+    {
+      "group": "Air",
+      "type": "Plane",
+      "model": "MiG"
+    },
+    {
+      "group": "Air",
+      "type": "Helicopter",
+      "model": "Apache"
+    },
+    {
+      "group": "Air",
+      "type": "Helicopter",
+      "model": "Kamov"
+    },
+    {
+      "group": "Sea",
+      "type": "Boat",
+      "model": "Sailboat"
+    },
+    {
+      "group": "Sea",
+      "type": "Boat",
+      "model": "Jetboat"
+    },
+    {
+      "group": "Sea",
+      "type": "Submarine",
+      "model": "Standard"
+    },
+    {
+      "group": "Land",
+      "type": "Car",
+      "model": "Camaro"
+    },
+    {
+      "group": "Land",
+      "type": "Car",
+      "model": "AMG GT R"
+    },
+    {
+      "group": "Land",
+      "type": "Car",
+      "model": "Lamborghini"
+    },
+    {
+      "group": "Land",
+      "type": "Truck",
+      "model": "Unimog"
+    },
+    {
+      "group": "Land",
+      "type": "Truck",
+      "model": "Western Star 5700"
+    }
+  ],
+  "gear": [
+    {
+      "id": 0,
+      "name": "sword"
+    },
+    {
+      "id": 1,
+      "name": "shield"
+    },
+    {
+      "id": 2,
+      "name": "machine-gun"
+    },
+    {
+      "id": 3,
+      "name": "cannon"
+    }
+  ],
+  "transformers": [
+    {
+      "id": 1,
+      "name": "Bumblebee",
+      "vehicleGroup": "Land",
+      "vehicleType": "Car",
+      "vehicleModel": "Camaro",
+      "faction": "Autobots",
+      "gear": [
+        {
+          "id": 2,
+          "name": "machine-gun"
+        }
+      ],
+      "status": "INJURED"
+    },
+    {
+      "id": 2,
+      "name": "Megatron",
+      "vehicleGroup": "Air",
+      "vehicleType": "Plane",
+      "vehicleModel": "Sukhoi",
+      "faction": "Decepticons",
+      "gear": [
+        {
+          "id": 3,
+          "name": "cannon"
+        }
+      ],
+      "status": "MIA"
+    },
+    {
+      "name": "Hrvatko",
+      "faction": "Autobots",
+      "vehicleGroup": "Sea",
+      "vehicleType": "Boat",
+      "vehicleModel": "Jetboat",
+      "gear": [],
+      "id": 3,
+      "status": "INJURED"
+    },
+    {
+      "name": "Hrvatko",
+      "faction": "Autobots",
+      "vehicleGroup": "Sea",
+      "vehicleType": "Boat",
+      "vehicleModel": "Jetboat",
+      "gear": [],
+      "id": 4,
+      "status": "INJURED"
+    },
+    {
+      "name": "Mali hrvatko",
+      "faction": "Decepticons",
+      "vehicleGroup": "Air",
+      "vehicleType": "Helicopter",
+      "vehicleModel": "Apache",
+      "gear": [
+        {
+          "id": 0,
+          "name": "sword"
+        },
+        {
+          "id": 1,
+          "name": "shield"
+        }
+      ],
+      "id": 5,
+      "status": "OK"
+    },
+    {
+      "name": "Bumbica",
+      "faction": "Autobots",
+      "vehicleGroup": "Air",
+      "vehicleType": "Plane",
+      "vehicleModel": "MiG",
+      "gear": [
+        {
+          "id": 1,
+          "name": "shield"
+        },
+        {
+          "id": 0,
+          "name": "sword"
+        }
+      ],
+      "id": 6,
+      "status": "OK"
+    },
+    {
+      "name": "Mali",
+      "faction": "Autobots",
+      "vehicleGroup": "Sea",
+      "vehicleType": "Submarine",
+      "vehicleModel": "Standard",
+      "gear": [
+        {
+          "id": 0,
+          "name": "sword"
+        },
+        {
+          "id": 1,
+          "name": "shield"
+        }
+      ],
+      "id": 10,
+      "status": "OK"
+    },
+    {
+      "id": 11,
+      "name": "Optimus Prime",
+      "vehicleGroup": "Land",
+      "vehicleType": "Truck",
+      "vehicleModel": "Western Star 5700",
+      "faction": "Autobots",
+      "gear": [
+        {
+          "id": 0,
+          "name": "sword"
+        },
+        {
+          "id": 1,
+          "name": "shield"
+        }
+      ],
+      "status": "OK"
+    }
+  ]
+}
