@@ -24,13 +24,30 @@ export class LoadTransformersSuccess implements Action {
 
 // load Filtrated Transformes
 
-export const LOAD_FILTRATED_TRANSFORMERS = '[Transformers] Load filtrated transformers'
+export const FILTER_TRANSFORMERS = '[Transformers] Filter transformers'
+export const FILTER_TRANSFORMERS_SUCCESS = '[Transformers] Filter transformers success'
 
-export class LoadFiltratedTransformers implements Action {
-  readonly type = LOAD_FILTRATED_TRANSFORMERS
-  constructor (public payload: any, public filtratedName: string, public filtratedFaction: string) {}
+export class FilterTransformers implements Action {
+  readonly type = FILTER_TRANSFORMERS
 }
 
+export class FilterTransformersSuccess implements Action {
+  readonly type = FILTER_TRANSFORMERS_SUCCESS
+  constructor (public payload: any) {}
+}
+// update filters
+
+export const UPDATE_FILTER_NAME = '[Transformers] update filter name'
+export const UPDATE_FILTER_FACTION = '[Transformers] update filter faction'
+
+export class UpdateFilterName implements Action {
+  readonly type = UPDATE_FILTER_NAME
+  constructor (public payload: string) {}
+}
+export class UpdateFilterFaction implements Action {
+  readonly type = UPDATE_FILTER_FACTION
+  constructor (public payload: string) {}
+}
 // create transformer
 
 export const CREATE_TRANSFORMER = '[Transformers] Create transformer'
@@ -97,7 +114,10 @@ export class RemoveTransformerSuccess implements Action {
 export type TransformersAction = LoadTransformers
 | LoadTransformersFailed
 | LoadTransformersSuccess
-| LoadFiltratedTransformers
+| FilterTransformers
+| FilterTransformersSuccess
+| UpdateFilterName
+| UpdateFilterFaction
 | CreateTransformer
 | CreateTransformerFail
 | CreateTransformerSuccess

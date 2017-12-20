@@ -22,6 +22,15 @@ export class TransformersEffects {
   )
 
   @Effect()
+  updateFilterFaction$ = this.action$.ofType(transformerActions.UPDATE_FILTER_FACTION).pipe(
+    map((transformer) => new transformerActions.FilterTransformersSuccess(transformer))
+  )
+  @Effect()
+  updateFilterName$ = this.action$.ofType(transformerActions.UPDATE_FILTER_NAME).pipe(
+    map((transformer) => new transformerActions.FilterTransformersSuccess(transformer))
+  )
+
+  @Effect()
   createTransformer$ = this.action$.ofType(transformerActions.CREATE_TRANSFORMER).pipe(
     map((action: transformerActions.CreateTransformer) => action.payload),
     switchMap(transformer => {

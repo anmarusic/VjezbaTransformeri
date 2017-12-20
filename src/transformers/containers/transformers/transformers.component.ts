@@ -31,6 +31,7 @@ import { map, tap } from 'rxjs/operators'
         (change)="updateTransformersList($event)"
         class="transformers__select">
             <option disabled selected value> -- Search by faction -- </option>
+            <option value="">None</option>
             <option *ngFor="let x of (faction$ | async)" [ngValue]="x?.name">{{ x?.name }}</option>
         </select>
       </div>
@@ -51,25 +52,20 @@ import { map, tap } from 'rxjs/operators'
 export class TransformersComponent implements OnInit {
   transformer$: Observable<Transformer[]>
   faction$: Observable<Faction[]>
-  selectedFaction: string
-  inputedName: string
 
-  constructor (private store: Store<fromStore.TransformersState>, private factionService: FactionService) {}
-
-  ngOnInit () {
+  constructor (private store: Store<fromStore.TransformersState>, private factionService: FactionService) {
     this.transformer$ = this.store.select(fromStore.getAllTransformers)
     this.faction$ = this.store.select(fromStore.getAllFaction)
+  }
+
+  ngOnInit () {
     this.store.dispatch(new fromStore.LoadTransformers())
-    this.selectedFaction = ''
-    this.inputedName = ''
     this.store.dispatch(new fromStore.LoadFaction())
   }
   updateTransformersList (faction) {
-    this.selectedFaction = faction.target.value
-    this.store.dispatch(new fromStore.LoadFiltratedTransformers(this.transformer$,this.selectedFaction,this.inputedName))
+    this.store.dispatch(new fromStore.UpdateFilterFaction(faction.target.value))
   }
   updateTransformersListInput (name) {
-    this.inputedName = name.target.value
-    this.store.dispatch(new fromStore.LoadFiltratedTransformers(this.transformer$,this.selectedFaction,this.inputedName))
+    this.store.dispatch(new fromStore.UpdateFilterName(name.target.value))
   }
 }

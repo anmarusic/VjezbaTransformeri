@@ -111,41 +111,6 @@
       "status": "INJURED"
     },
     {
-      "id": 2,
-      "name": "Megatron",
-      "vehicleGroup": "Air",
-      "vehicleType": "Plane",
-      "vehicleModel": "Sukhoi",
-      "faction": "Decepticons",
-      "gear": [
-        {
-          "id": 3,
-          "name": "cannon"
-        }
-      ],
-      "status": "MIA"
-    },
-    {
-      "name": "Hrvatko",
-      "faction": "Autobots",
-      "vehicleGroup": "Sea",
-      "vehicleType": "Boat",
-      "vehicleModel": "Jetboat",
-      "gear": [],
-      "id": 3,
-      "status": "INJURED"
-    },
-    {
-      "name": "Hrvatko",
-      "faction": "Autobots",
-      "vehicleGroup": "Sea",
-      "vehicleType": "Boat",
-      "vehicleModel": "Jetboat",
-      "gear": [],
-      "id": 4,
-      "status": "INJURED"
-    },
-    {
       "name": "Mali hrvatko",
       "faction": "Decepticons",
       "vehicleGroup": "Air",
@@ -184,25 +149,6 @@
       "status": "OK"
     },
     {
-      "name": "Mali",
-      "faction": "Autobots",
-      "vehicleGroup": "Sea",
-      "vehicleType": "Submarine",
-      "vehicleModel": "Standard",
-      "gear": [
-        {
-          "id": 0,
-          "name": "sword"
-        },
-        {
-          "id": 1,
-          "name": "shield"
-        }
-      ],
-      "id": 10,
-      "status": "OK"
-    },
-    {
       "id": 11,
       "name": "Optimus Prime",
       "vehicleGroup": "Land",
@@ -220,6 +166,40 @@
         }
       ],
       "status": "OK"
+    },
+    {
+      "id": 12,
+      "name": "Megatron",
+      "vehicleGroup": "Air",
+      "vehicleType": "Plane",
+      "vehicleModel": "Sukhoi",
+      "faction": "Decepticons",
+      "gear": [
+        {
+          "id": 3,
+          "name": "cannon"
+        }
+      ],
+      "status": "MIA"
+    },
+    {
+      "name": "Mali iz Šume",
+      "faction": "Decepticons",
+      "vehicleGroup": "Land",
+      "vehicleType": "Truck",
+      "vehicleModel": "Western Star 5700",
+      "gear": [
+        {
+          "id": 2,
+          "name": "machine-gun"
+        },
+        {
+          "id": 1,
+          "name": "shield"
+        }
+      ],
+      "status": "OK",
+      "id": 14
     }
   ]
 }

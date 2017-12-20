@@ -3,81 +3,50 @@ import * as fromTransformers from '../actions/transformers.action'
 import { Transformer } from '../../models/transformer.model'
 
 export interface TransformerState {
-  entities: {[id: number]: Transformer}
+  entities: Transformer[]
   loaded: boolean
   loading: boolean
-  inputedFilter: string
-  selectedFaction: string
+  selectedFactionFilter: string
+  inputedNameFilter: string
+  originalEntities: Transformer[]
 }
 
 export const initalState: TransformerState = {
-  entities: {},
+  entities: [],
   loading: false,
   loaded: false,
-  inputedFilter: '',
-  selectedFaction: ''
+  selectedFactionFilter: '',
+  inputedNameFilter: '',
+  originalEntities: []
 }
 
 export function reducer (state = initalState, action: fromTransformers.TransformersAction): TransformerState {
   switch (action.type) {
+    case fromTransformers.UPDATE_FILTER_FACTION: {
+      return {
+        ...state,
+        selectedFactionFilter: action.payload
+      }
+    }
+    case fromTransformers.UPDATE_FILTER_NAME: {
+      return{
+        ...state,
+        inputedNameFilter: action.payload
+      }
+    }
     case fromTransformers.LOAD_TRANSFORMERS: {
       return {
         ...state,
         loading: true
       }
     }
-    case fromTransformers.LOAD_FILTRATED_TRANSFORMERS: {
-      const transformers = action.payload
-      const entities = transformers.reduce((_entities: {[id: number]: Transformer}, _transformer: Transformer) => {
-        let factTrue = false
-        let nameTrue = false
-        if (action.filtratedFaction === '') {
-          factTrue = true
-        }else {
-          if (_transformer.faction === action.filtratedFaction) {
-            factTrue = true
-          }
-        }
-        if (action.filtratedName === '') {
-          nameTrue = true
-        }else {
-          if (_transformer.name.toLowerCase().includes(action.filtratedName.toLowerCase())) {
-            nameTrue = true
-          }
-        }
-        if (nameTrue && factTrue) {
-          return{
-            ..._entities,
-            [_transformer.id]: _transformer
-          }
-        }
-      },
-        {
-          ...state.entities
-        })
-      return {
-        ...state,
-        loading: false,
-        loaded: true,
-        entities
-      }
-    }
     case fromTransformers.LOAD_TRANSFORMERS_SUCCESS: {
-      const transformers = action.payload
-      const entities = transformers.reduce((_entities: {[id: number]: Transformer}, _transformer: Transformer) => {
-        return{
-          ..._entities,
-          [_transformer.id]: _transformer
-        }
-      },
-        {
-          ...state.entities
-        })
       return {
         ...state,
         loading: false,
         loaded: true,
-        entities
+        entities: action.payload,
+        originalEntities: action.payload
       }
     }
     case fromTransformers.LOAD_TRANSFORMERS_FAILED: {
@@ -87,23 +56,36 @@ export function reducer (state = initalState, action: fromTransformers.Transform
         loaded: false
       }
     }
-    case fromTransformers.UPDATE_TRANSFORMER_SUCCESS:
-    case fromTransformers.CREATE_TRANSFORMER_SUCCESS: {
-      const transformer = action.payload
-      const entities = {
-        ...state.entities,
-        [transformer.id]: transformer
-      }
-      return {
+    case fromTransformers.REMOVE_TRANSFORMER_SUCCESS: {
+      const entities = state.originalEntities.filter(t => t.id !== action.payload.id)
+      return{
         ...state,
         entities
       }
     }
-    case fromTransformers.REMOVE_TRANSFORMER_SUCCESS: {
+    case fromTransformers.FILTER_TRANSFORMERS: {
+      return {
+        ...state,
+        loading: true
+      }
+    }
+    case fromTransformers.FILTER_TRANSFORMERS_SUCCESS: {
+      const filteredTransformers = state.originalEntities
+      .filter(t => state.selectedFactionFilter ? (t.faction === state.selectedFactionFilter) : true)
+      .filter(t => state.inputedNameFilter ? (t.name.toLowerCase().includes(state.inputedNameFilter.toLowerCase())) : true)
+      return {
+        ...state,
+        entities: filteredTransformers
+      }
+    }
+    case fromTransformers.UPDATE_TRANSFORMER_SUCCESS:
+    case fromTransformers.CREATE_TRANSFORMER_SUCCESS: {
       const transformer = action.payload
-
-      const { [transformer.id]: removed, ...entities } = state.entities
-      return{
+      const entities = {
+        ...state.originalEntities,
+        [transformer.id]: transformer
+      }
+      return {
         ...state,
         entities
       }

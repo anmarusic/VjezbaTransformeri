@@ -16,10 +16,6 @@ export const getSelectedTransformer = createSelector(getTransformersEntities, fr
   return router.state && entities[parseInt(router.state.params.transformerId,10)]
 })
 
-export const getFiltratedTransformers = createSelector(getTransformersEntities, (entities) => {
-  return Object.keys(entities).map(id => entities[parseInt(id, 10)])
-})
-
 export const getTransformerVisualised = createSelector(getSelectedTransformer,fromGear.getGearEntities,fromGear.getSelectedGear,
   (transformer, gearEntities,selectedGear) => {
     const gear = selectedGear.map(id => gearEntities[id])
@@ -28,7 +24,9 @@ export const getTransformerVisualised = createSelector(getSelectedTransformer,fr
 )
 
 export const getAllTransformers = createSelector(getTransformersEntities, (entities) => {
-  return Object.keys(entities).map(id => entities[parseInt(id, 10)])
+  if (entities) {
+    return Object.keys(entities).map(id => entities[parseInt(id, 10)])
+  }
 })
 
 export const getTransformerLoading = createSelector(getTransformerState, fromTransformers.getTransformersLoading)
