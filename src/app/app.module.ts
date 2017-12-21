@@ -30,7 +30,7 @@ export const ROUTES: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'transformers' },
   {
     path: 'transformers',
-    loadChildren: './transformers/transformers.module#TransformersModule'
+    loadChildren: './containers/transformers/transformers.module#TransformersModule'
   }
 ]
 
